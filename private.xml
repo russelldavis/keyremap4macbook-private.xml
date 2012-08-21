@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+      <appname>PYCHARM</appname>
+      <equal>com.jetbrains.pycharm</equal>
+  </appdef>
+  <item>
+    <name>Keyboard Mouse Buttons</name>
+    <item>
+      <name>Back to Left Click</name>
+      <identifier>private.back_to_left_click</identifier>
+      <autogen>--KeyToPointingButton-- KeyCode::F16, PointingButton::LEFT</autogen>
+    </item>
+
+    <item>
+      <name>Forward to Right Click</name>
+      <identifier>private.forward_to_right_click</identifier>
+      <autogen>--KeyToPointingButton-- KeyCode::F18, PointingButton::RIGHT</autogen>
+    </item>
+  </item>
+
+  <item>
+    <name>Double control to caps-lock</name>
+    <identifier>private.control_x2_to_capslock</identifier>
+    <autogen>--DoublePressModifier-- KeyCode::CONTROL_L, KeyCode::CONTROL_L, KeyCode::CAPSLOCK</autogen>
+  </item>
+
+  <item>
+    <name>Swap Option+Tab and Control+Tab (except VM)</name>
+    <identifier>private.swap_option_tab_and_control_tab</identifier>
+
+    <autogen>
+      --KeyToKey--
+      KeyCode::OPTION_L,
+      KeyCode::OPTION_L,
+      Option::KEYTOKEY_AFTER_KEYUP, KeyCode::VK_LOCK_EXTRA1_FORCE_OFF
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::OPTION_R,
+      KeyCode::OPTION_R,
+      Option::KEYTOKEY_AFTER_KEYUP, KeyCode::VK_LOCK_EXTRA1_FORCE_OFF
+    </autogen>
+
+    <autogen>
+      --KeyToKey--
+      KeyCode::SHIFT_L, ModifierFlag::EXTRA1,
+      KeyCode::VK_LAZY_SHIFT_L,
+    </autogen>
+
+    <autogen>
+      --KeyToKey--
+      KeyCode::SHIFT_R, ModifierFlag::EXTRA1,
+      KeyCode::VK_LAZY_SHIFT_R,
+    </autogen>
+
+    <autogen>
+      --KeyToKey--
+      KeyCode::TAB, VK_OPTION,
+      KeyCode::TAB, ModifierFlag::CONTROL_L,
+      Option::KEYTOKEY_BEFORE_KEYDOWN, KeyCode::VK_LOCK_EXTRA1_FORCE_ON, ModifierFlag::CONTROL_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>Fix arrow keys during control-tab (PyCharm only)</name>
+    <identifier>private.controlTabPycharm</identifier>
+    <only>PYCHARM</only>
+    <autogen>
+      --KeyToKey--
+      KeyCode::CURSOR_LEFT, VK_OPTION | ModifierFlag::EXTRA1,
+      KeyCode::CURSOR_LEFT, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::CURSOR_RIGHT, VK_OPTION | ModifierFlag::EXTRA1,
+      KeyCode::CURSOR_RIGHT, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::CURSOR_DOWN, VK_OPTION | ModifierFlag::EXTRA1,
+      KeyCode::TAB, ModifierFlag::CONTROL_L
+    </autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::CURSOR_UP, VK_OPTION | ModifierFlag::EXTRA1,
+      KeyCode::TAB, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+    </autogen>
+  </item>
+
+<!--   <item>
+    <name>Swap Control+Tab and Option+Tab (except VM)</name>
+    <identifier>private.swapControlTabWithOptionTab</identifier>
+     <not>VIRTUALMACHINE</not>
+     <autogen>--KeyToKey-- KeyCode::TAB, VK_CONTROL, KeyCode::TAB, ModifierFlag::OPTION_L</autogen>
+     <autogen>--KeyToKey-- KeyCode::TAB, VK_OPTION, KeyCode::TAB, ModifierFlag::CONTROL_L</autogen>
+  </item>
+ -->
+<!--     <item>
+      <name>Option+Tab to Option+Control+Tab (PyCharm only)</name>
+      <identifier>private.optionTabPycharm</identifier>
+      <only>PYCHARM</only>
+      <autogen>--KeyToKey-- KeyCode::TAB, VK_OPTION, KeyCode::TAB, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L</autogen>
+    </item>
+ -->
+
+</root>
